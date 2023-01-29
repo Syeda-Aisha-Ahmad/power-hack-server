@@ -30,6 +30,13 @@ async function run() {
             res.send(result)
         })
 
+        // add billing get
+        app.get('/add-billing', async (req, res) => {
+            const query = {};
+            const result = await addBillingCollection.find(query).sort({ $natural: -1 }).toArray();
+            res.send(result)
+        })
+
     }
     finally { }
 }
